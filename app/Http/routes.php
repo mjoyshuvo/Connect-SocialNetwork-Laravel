@@ -43,3 +43,16 @@ Route::get('/user/{username}',[
 	'uses'=> 'ProfileController@getProfile',
 	'as' => 'profile.index'
 	]);
+
+/**
+ * User Profile Update
+ */
+Route::get('/profile/update', [
+	'uses' => 'ProfileController@getEditProfile',
+	'as' => 'profile.update',
+	'middleware' => ['auth'],
+	]);
+Route::post('/profile/update', [
+	'uses' => 'ProfileController@postEditProfile',
+	'middleware' => ['auth'],
+	]);
