@@ -56,3 +56,18 @@ Route::post('/profile/update', [
 	'uses' => 'ProfileController@postEditProfile',
 	'middleware' => ['auth'],
 	]);
+
+/**
+ * Friends
+ */
+
+Route::get('/friends', [
+	'uses' => 'FriendController@getIndex',
+	'as' => 'friends.index',
+	'middleware' => ['auth'],
+	]);
+Route::get('/friends/add/{username}', [
+	'uses' => 'FriendController@getAdd',
+	'as' => 'friend.add',
+	'middleware' => ['auth'],
+	]);
